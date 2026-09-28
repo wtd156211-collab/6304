@@ -1,0 +1,2 @@
+TRAP 等待
+TERMINAL 已停机

@@ -1,0 +1,3 @@
+CONFLICT 待机 启动 -> 预热,直接运行,自检
+CONFLICT 预热 超时 -> 直接运行,自检
+TERMINAL 已停机
