@@ -1,0 +1,150 @@
+{
+  "machines": [
+    {
+      "name": "conflict",
+      "states": [
+        "待机",
+        "预热",
+        "直接运行",
+        "自检",
+        "运行中",
+        "已停机"
+      ],
+      "reachable": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "problems": [
+        "CONFLICT 待机 启动 -> 预热,直接运行,自检",
+        "CONFLICT 预热 超时 -> 直接运行,自检",
+        "TERMINAL 已停机"
+      ]
+    },
+    {
+      "name": "order_flow",
+      "states": [
+        "待支付",
+        "已支付",
+        "已取消",
+        "已发货",
+        "已退款",
+        "已完成"
+      ],
+      "reachable": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "problems": [
+        "TERMINAL 已取消",
+        "TERMINAL 已退款",
+        "TERMINAL 已完成"
+      ]
+    },
+    {
+      "name": "retry_cycle",
+      "states": [
+        "空闲",
+        "连接中",
+        "已连接",
+        "失败计数",
+        "已放弃",
+        "传输中",
+        "已完成",
+        "校验中"
+      ],
+      "reachable": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "problems": [
+        "TERMINAL 已放弃",
+        "TERMINAL 已完成"
+      ]
+    },
+    {
+      "name": "selfloops",
+      "states": [
+        "上电",
+        "待机",
+        "采集",
+        "等待",
+        "已停机",
+        "上传"
+      ],
+      "reachable": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "problems": [
+        "TRAP 等待",
+        "TERMINAL 已停机"
+      ]
+    },
+    {
+      "name": "stuck_zone",
+      "states": [
+        "空闲",
+        "处理中",
+        "已停机",
+        "重试中",
+        "排队中"
+      ],
+      "reachable": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "problems": [
+        "TRAP 处理中,重试中,排队中",
+        "TERMINAL 已停机"
+      ]
+    },
+    {
+      "name": "unreachable",
+      "states": [
+        "空闲",
+        "就绪",
+        "运行",
+        "完工",
+        "维护",
+        "检修",
+        "验收"
+      ],
+      "reachable": [
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "problems": [
+        "UNREACHABLE 维护",
+        "UNREACHABLE 检修",
+        "UNREACHABLE 验收",
+        "TERMINAL 完工"
+      ]
+    }
+  ]
+}
